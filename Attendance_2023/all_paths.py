@@ -116,7 +116,7 @@ class Attendance:
                 print("Attendance is added successfully")
 
         except Exception as e:
-            print("Attendance is not added, please re-verify")
+            print("Attendance is not added, please re-verify once")
             print(e)
 
     def get_projectsname(self):
