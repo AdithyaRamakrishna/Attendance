@@ -18,7 +18,7 @@ for i in range(2, sheet.max_row + 1):
     Mar_Attendance.verification()
     sheet.cell(row=i, column=5).value="Done"
     excel.save(r'C:\Users\User\PycharmProjects\pythonProject1\Attendance_2023\Invoice - March 23.xlsx')
-    print('************************************************************************')
+    print('#'*30)
 
 print("Attendance is added successfully for all the employees ")
 
