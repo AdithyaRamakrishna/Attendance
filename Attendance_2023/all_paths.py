@@ -22,18 +22,6 @@ class Attendance:
         driver.find_element("xpath", "//a[text()='Add attendance']").click()
         time.sleep(2)
 
-    def worked_days(self, value):
-        # click on Worked days
-        w_days = driver.find_element('xpath', "//input[@id='edit-field-working-days-und-0-value']")
-        w_days.send_keys(value)
-        print(f"Entered Worked days value is {value}")
-
-    def leaves(self, value):
-        # click on Worked days
-        l_days = driver.find_element("xpath", "//input[@id='edit-field-leaves-taken-und-0-value']")
-        l_days.send_keys(value)
-        print(f"Entered leaves days value is {value}")
-
     def month_dropdown(self):
         # click on Month dropdown
         driver.find_element('xpath', "//div[@id='edit_field_month_und_0_value_month_chosen']").click()
@@ -70,6 +58,18 @@ class Attendance:
         print("Clicked on the Suggested Year option")
         time.sleep(2)
 
+    def worked_days(self, value):
+        # click on Worked days
+        w_days = driver.find_element('xpath', "//input[@id='edit-field-working-days-und-0-value']")
+        w_days.send_keys(value)
+        print(f"Entered Worked days value is {value}")
+
+    def leaves(self, value):
+        # click on Worked days
+        l_days = driver.find_element("xpath", "//input[@id='edit-field-leaves-taken-und-0-value']")
+        l_days.send_keys(value)
+        print(f"Entered leaves days value is {value}")
+
     def project_dropdown(self, value):
         # click on Project dropdown
         driver.find_element("xpath", "//div[@id='edit_field_project_attend_und_chosen']").click()
@@ -97,7 +97,6 @@ class Attendance:
         emp_id = driver.find_element("xpath", "//input[@id='edit-name']")
         emp_id.clear()
         print("Cleared the name")
-
         # Enter employee id
         emp_id.send_keys(value)
         print(f"Entered employee Id is {value}")
@@ -110,14 +109,15 @@ class Attendance:
     def verification(self):
         try:
             ver = driver.find_element("xpath", "//div[@class='messages status']")
-
             status = ver.text
             if "has been created" in status:
                 print("Attendance is added successfully")
+                return True
 
         except Exception as e:
             print("Attendance is not added, please re-verify once")
-            print(e)
+            #print(e)
+            return False
 
     def get_projectsname(self):
         self.add_attendance()

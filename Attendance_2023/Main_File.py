@@ -1,8 +1,8 @@
 from openpyxl import load_workbook
 from all_paths import *
 
-excel = load_workbook(r'C:\Users\User\PycharmProjects\pythonProject1\Attendance_2023\Invoice - March 23.xlsx')
-sheet = excel.active
+excel = load_workbook(r"C:\Users\User\Desktop\Timesheet\March 23\Equitas_March23.xlsx")
+sheet = excel['March']
 
 Mar_Attendance = Attendance()
 Mar_Attendance.login()
@@ -15,10 +15,11 @@ for i in range(2, sheet.max_row + 1):
     Mar_Attendance.leaves(value=sheet.cell(row=i, column=2).value)
     Mar_Attendance.project_dropdown(value=sheet.cell(row=i, column=3).value)
     Mar_Attendance.employee_id(value=sheet.cell(row=i, column=4).value)
-    Mar_Attendance.verification()
-    sheet.cell(row=i, column=5).value="Done"
-    excel.save(r'C:\Users\User\PycharmProjects\pythonProject1\Attendance_2023\Invoice - March 23.xlsx')
-    print('************************************************************************')
+    #Mar_Attendance.verification()
+    if Mar_Attendance.verification()==True:
+        sheet.cell(row=i, column=5).value="Done"
+        excel.save(r"C:\Users\User\Desktop\Timesheet\March 23\Equitas_March23.xlsx")
+    print('-' * 60)
 
 print("Attendance is added successfully for all the employees ")
 
