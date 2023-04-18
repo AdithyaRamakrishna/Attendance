@@ -30,8 +30,8 @@ class Attendance:
         # Enter the Month value in the search box
         month = driver.find_element("xpath", "//div[@id='edit_field_month_und_0_value_month_chosen']"
                                              "//div[@class='chosen-drop']//input[@type='text']")
-        month.send_keys("Dec")
-        print(f"Entered value in the Month search field is December")
+        month.send_keys("Mar")
+        print(f"Entered value in the Month search field is March")
         time.sleep(1)
 
         # click on the suggestion
@@ -97,7 +97,6 @@ class Attendance:
         emp_id = driver.find_element("xpath", "//input[@id='edit-name']")
         emp_id.clear()
         print("Cleared the name")
-
         # Enter employee id
         emp_id.send_keys(value)
         print(f"Entered employee Id is {value}")
