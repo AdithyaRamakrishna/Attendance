@@ -1,19 +1,21 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
 
+driver.delete_all_cookies()
 driver.get("http://175.100.150.82/")
 driver.maximize_window()
-driver.implicitly_wait(5)
+driver.implicitly_wait(2)
 
 
 class Attendance:
 
     def login(self):
-        driver.find_element("xpath", "//input[@name='name']").send_keys('harsha.ad')
-        driver.find_element("xpath", "//input[@name='pass']").send_keys('12345')
+        driver.find_element("xpath", "//input[(@type='text') and (@id='edit-name') and (@name='name')]").send_keys('harsha.ad')
+        driver.find_element("xpath", "//input[(@type='password') and (@id='edit-pass') and (@name='pass')]").send_keys('12345')
         driver.find_element("xpath", "//input[@name='op']").click()
         print("Logged in successfully")
         time.sleep(2)
@@ -23,20 +25,22 @@ class Attendance:
         time.sleep(2)
 
     def month_dropdown(self):
+
         # click on Month dropdown
         driver.find_element('xpath', "//div[@id='edit_field_month_und_0_value_month_chosen']").click()
         print("Clicked on Month Dropdown")
+        time.sleep(2)
 
         # Enter the Month value in the search box
         month = driver.find_element("xpath", "//div[@id='edit_field_month_und_0_value_month_chosen']"
                                              "//div[@class='chosen-drop']//input[@type='text']")
-        month.send_keys("Mar")
-        print(f"Entered value in the Month search field is March")
+        month.send_keys('Jan')
+        print("Entered value in the Month search field is January")
         time.sleep(1)
 
         # click on the suggestion
         month.send_keys(Keys.ENTER)
-        #driver.find_element("xpath", "//*[@id='edit_field_month_und_0_value_month_chosen']/div/ul/li[1]").click()
+        # driver.find_element("xpath", "//*[@id='edit_field_month_und_0_value_month_chosen']/div/ul/li[1]").click()
         print("Clicked on the Suggested Month option")
         time.sleep(2)
 
@@ -48,12 +52,12 @@ class Attendance:
         # Enter the Year value in the search box
         year = driver.find_element("xpath", "//div[@id='edit_field_month_und_0_value_year_chosen'] "
                                             "//input[@class='chosen-search-input']")
-        year.send_keys('2023')
-        print("Entered value in the Year search field is 2023")
+        year.send_keys('2024')
+        print("Entered value in the Year search field is 2024")
         time.sleep(1)
 
         # click on the suggestion
-        #driver.find_element("xpath", "//*[@id='edit_field_month_und_0_value_year_chosen']/div/ul/li[2]").click()
+        # driver.find_element("xpath", "//*[@id='edit_field_month_und_0_value_year_chosen']/div/ul/li[2]").click()
         year.send_keys(Keys.ENTER)
         print("Clicked on the Suggested Year option")
         time.sleep(2)
@@ -83,7 +87,7 @@ class Attendance:
         time.sleep(1)
 
         # click on the suggestion
-        #driver.find_element("xpath", "//*[@id='edit_field_project_attend_und_chosen']/div/ul/li[1]").click()
+        # driver.find_element("xpath", "//*[@id='edit_field_project_attend_und_chosen']/div/ul/li[1]").click()
         project_dd.send_keys(Keys.ENTER)
         print("Clicked on the Suggested project option")
         time.sleep(2)
@@ -116,7 +120,7 @@ class Attendance:
 
         except Exception as e:
             print("Attendance is not added, please re-verify once")
-            #print(e)
+            # print(e)
             return False
 
     def get_projectsname(self):
