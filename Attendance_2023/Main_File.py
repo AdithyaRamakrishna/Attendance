@@ -1,11 +1,12 @@
 from openpyxl import load_workbook
 from all_paths import *
 
-excel = load_workbook(r"C:\Users\User\Desktop\Timesheet\2023\July 23\Invoice_July23.xlsx")
+excel = load_workbook(r"C:\Users\User\Desktop\Timesheet\2024\January 24\Invoice_Karthik CS_Jan24.xlsx")
 sheet = excel['Sheet2']
 
 Mar_Attendance = Attendance()
 Mar_Attendance.login()
+# Mar_Attendance.get_projectsname()
 
 for i in range(2, sheet.max_row+1):
     Mar_Attendance.add_attendance() 
@@ -16,10 +17,10 @@ for i in range(2, sheet.max_row+1):
     Mar_Attendance.project_dropdown(value=sheet.cell(row=i, column=3).value)
     Mar_Attendance.employee_id(value=sheet.cell(row=i, column=4).value)
     #Mar_Attendance.verification()
-    
+
     if Mar_Attendance.verification()==True:
-        sheet.cell(row=i, column=5).value="Done"
-        excel.save(r"C:\Users\User\Desktop\Timesheet\2023\July 23\Invoice_July23.xlsx")
+        sheet.cell(row=i, column=5).value = "Done"
+        excel.save(r"C:\Users\User\Desktop\Timesheet\2024\January 24\Invoice_Karthik CS_Jan24.xlsx")
     print('-' * 60)
 
 print("Attendance is added successfully for all the employees ")
