@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96d9b23b-63cf-427e-8967-dc9982288ba5" name="Changes" comment="Commiting the second version">
-      <change afterPath="$PROJECT_DIR$/Appium/Ap2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/Practice1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pythonProject1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attendance_2023/Invoice - March 23.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attendance_2023/Main_File.py" beforeDir="false" afterPath="$PROJECT_DIR$/Attendance_2023/Main_File.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attendance_2023/all_paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/Attendance_2023/all_paths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewPractice/practice_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewPractice/practice_1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
