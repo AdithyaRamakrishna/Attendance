@@ -1,3 +1,4 @@
+import calendar
 import time
 from collections import defaultdict
 '''
@@ -100,7 +101,7 @@ try:
     print("abc")
 
 except Exception:
-'''
+
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -108,7 +109,7 @@ from selenium.webdriver.common.by import By
 driver1 = webdriver.Firefox()
 
 driver1.get("http://omayo.blogspot.com/")
-'''
+
 text = driver1.find_element(By.ID, "textbox1")
 time.sleep(2)
 text.clear()
@@ -135,4 +136,40 @@ print(driver1.current_url)
 driver1.find_element(By.LINK_TEXT,"Open a popup window").click()
 
 driver1
+
+summ = 0
+for i in range(1, 6):
+    summ = summ + i
+print(summ)
+
+n1 = 10
+n2 = 8
+n1, n2 = n2, n1
+
+print(n1, n2)
+print(calendar.month(2024,11))
+
+if n1 % 2 == 0:
+    print(f"{n1} is even number")
+
+else:
+    print(f"{n1} is odd number")
+    
+num = 12
+for i in range(2,num):
+    if num % i == 0:
+            print(f"{num} is not a prime number")
+            break
+
+    else:
+        print(f"{num} is a prime number")
+        break
 '''
+file = open('Sample.txt')
+#print(file.read(5))
+newfile = file.readlines()
+for i in newfile:
+    print(i)
+new = reversed(newfile)
+print(new)
+print(newfile)

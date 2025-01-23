@@ -10,7 +10,7 @@ desired_caps = {
     "platformName": "Android",
     "appium:deviceName": "RZCW41Q2A0T",  # real device (Samsung S23)
     "appium:automationName": "UiAutomator2",
-    "appium:app": "C:\\Users\\Adithya\\OneDrive\\Desktop\\stainid.apk",
+    "appium:app": r"C:\Users\Adithya\Downloads\6.0.184077.apk",
 }
 
 driver = webdriver.Remote("http://127.0.0.1:4723", options=AppiumOptions().load_capabilities(desired_caps))
@@ -45,3 +45,6 @@ el10 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.CheckBo
 el10.click()
 el11 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.Button")
 el11.click()
+
+
+driver.find_element(AppiumBy.XPATH)

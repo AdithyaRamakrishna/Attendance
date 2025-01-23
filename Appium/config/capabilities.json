@@ -1,14 +1,16 @@
 {
-            "platformName": "Android",
-            "appium:deviceName": "RZCW41Q2A0T",
-            "appium:automationName": "UiAutomator2",
-            "appium:appPackage": "com.ecolab.apps.stainid",
-            "appium:appActivity": "crc64d83ff2e5b463b76a.MainActivity",
-            "appium:app": "C:\\Users\\Adithya\\OneDrive\\Desktop\\stainid.apk",
-            "appium:noReset": true,
-            "appium:fullReset": false,
-            "appium:ensureWebviewsHavePages": true,
-            "appium:nativeWebScreenshot": true,
-            "appium:newCommandTimeout": 3600,
-            "appium:connectHardwareKeyboard": true
-        }
+  "capabilities": {
+    "platformName": "Android",
+    "appium:deviceName": "RZCW41Q2A0T",
+    "appium:automationName": "UiAutomator2",
+    "appium:appPackage": "com.ecolab.apps.stainid",
+    "appium:appActivity": "crc64d83ff2e5b463b76a.MainActivity",
+    "appium:app": "C:\\Users\\Adithya\\OneDrive\\Desktop\\stainid.apk",
+    "appium:noReset": true,
+    "appium:fullReset": false,
+    "appium:ensureWebviewsHavePages": true,
+    "appium:nativeWebScreenshot": true,
+    "appium:newCommandTimeout": 3600,
+    "appium:connectHardwareKeyboard": true
+  }
+}

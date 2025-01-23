@@ -15,13 +15,15 @@ class LaunchApp:
         desired_caps = {
 
             "platformName": "Android",
-            "appium:deviceName": "RZCW41Q2A0T",
+            "appium:deviceName": "Android device",
             "appium:automationName": "UiAutomator2",
-            "appium:app": "C:\\Users\\Adithya\\OneDrive\\Desktop\\stainid.apk",
+            "appium:app": r"C:\Users\Adithya\OneDrive\Desktop\7.1.248833_UAT.apk",
             "appium:ensureWebviewsHavePages": True,
             "appium:nativeWebScreenshot": True,
             "appium:newCommandTimeout": 3600,
             "appium:connectHardwareKeyboard": True,
+            "appium:noReset": True,
+            "appium:fullReset": False,
             "chromedriverExecutable": r"C:\Users\Adithya\Downloads\chromedriver.exe"
 
         }
@@ -47,29 +49,53 @@ class LaunchApp:
         print('opened the app')
         time.sleep(2)
 
-        wait = WebDriverWait(driver1, 20)
-        element = wait.until(EC.presence_of_element_located(
-            (AppiumBy.XPATH, "//android.view.View[@resource-id='ecolabs-connect-sign-in']")))
-        element.click()
-        print('clicked on email')
+        wait = WebDriverWait(driver1, 30)
+        # old
+        # element = wait.until(EC.presence_of_element_located(
+        #     (AppiumBy.XPATH, "//android.view.View[@resource-id='ecolabs-connect-sign-in']")))
+        # element.click()
+        # print('clicked on email')
 
-        element = wait.until(
-            EC.element_to_be_clickable((AppiumBy.XPATH, "//android.widget.EditText[@resource-id='signInName']")))
-        element.click()  # Ensure the element is focused
-        element.send_keys('emcamanager@outlook.com')
+        # element = wait.until(EC.presence_of_element_located(
+        #     (AppiumBy.ID, 'i0281')))
+        # element.click()
+        # print('clicked on email')
 
+        # old
+        # element = wait.until(
+        #     EC.element_to_be_clickable((AppiumBy.XPATH, "//android.widget.EditText[@resource-id='signInName']")))
+        # element.click()  # Ensure the element is focused
+        # element.send_keys('emcamanager@outlook.com')
+
+        # element = wait.until(
+        #     EC.element_to_be_clickable((AppiumBy.ID, '//android.widget.EditText[@resource-id="i0116"]')))
+        # element.click()  # Ensure the element is focused
+        # element.send_keys('adithya.r@ecolab.com')
+
+
+        try:
+            clickable_element = wait.until(
+                EC.element_to_be_clickable((AppiumBy.ID, '//android.widget.EditText[@resource-id="i0116"]')))
+            print("The element is clickable.")
+        except:
+            print("The element is not clickable within the timeout.")
+
+        time.sleep(5)
+        driver1.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="i0116"]').send_keys('adithya.r@ecolab.com')
         print('entered email')
         time.sleep(5)
-        driver1.find_element(by=AppiumBy.XPATH,value='//android.widget.Button[@resource-id="continue"]').click()
-        print('clicked on continue button')
-        time.sleep(5)
-        driver1.find_element(by=AppiumBy.XPATH,value='//android.widget.EditText[@resource-id="password"]').send_keys('!Ecolab1')
-        print('entered password')
-        time.sleep(2)
-        driver1.find_element(by=AppiumBy.XPATH,value='//android.widget.Button[@resource-id="next"]').click()
+        driver1.find_element(by=AppiumBy.XPATH,value='//android.widget.Button[@resource-id="idSIButton9"]').click()
         print('clicked on next button')
-        time.sleep(5)
-        driver1.find_element(by=AppiumBy.XPATH,value='//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]').click()
+        # time.sleep(5)
+        # driver1.find_element(by=AppiumBy.XPATH,value='//android.widget.EditText[@resource-id="password"]').send_keys('!Ecolab1')
+        # print('entered password')
+        # time.sleep(2)
+        # driver1.find_element(by=AppiumBy.XPATH,value='//android.widget.Button[@resource-id="next"]').click()
+        # print('clicked on next button')
+        element = wait.until(EC.presence_of_element_located((AppiumBy.XPATH,'//android.widget.Button[@resource-id='
+                                                                                 '"com.android.permissioncontroller:id/permission_allow_foreground_only_button"]')))
+        element.click()
+       # driver1.find_element(by=AppiumBy.XPATH,value='//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]').click()
         print('allowed 1st permission')
         time.sleep(2)
         driver1.find_element(by=AppiumBy.XPATH,value='//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]').click()

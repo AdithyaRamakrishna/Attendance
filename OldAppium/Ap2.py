@@ -1,5 +1,4 @@
 import time
-
 from appium import webdriver
 from appium.options.common import AppiumOptions
 from appium.webdriver.common.appiumby import AppiumBy
@@ -15,8 +14,8 @@ class SecondLaunch:
             "appium:deviceName": "95HX20SY9",
             "appium:automationName": "UiAutomator2",
             "appium:autoGrantPermissions": True,
-            "appium:appPackage": "com.lntsufin.buyer.sit2",
-            "appium:appActivity": "com.lntsufin.buyer.MainActivity"
+            "appium:appPackage": "com.app.buyer.sit2",
+            "appium:appActivity": "com.app.buyer.MainActivity"
         }
 
         driver1 = webdriver.Remote("http://127.0.0.1:4723", options=AppiumOptions().load_capabilities(desired_caps1))
@@ -44,4 +43,7 @@ class SecondLaunch:
 
 
 user1 = SecondLaunch()
-user1.second()
+#user1.second()
+
+
+print('ia')

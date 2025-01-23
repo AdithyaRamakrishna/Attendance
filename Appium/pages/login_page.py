@@ -1,11 +1,17 @@
-from Appium.config.import_items import *
+import time
+from appium import webdriver
+from appium.options.common import AppiumOptions
+from appium.webdriver.common.appiumby import AppiumBy
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from test import FreshLaunchApp  # Importing the login class from test.py# from Appium.utils.wait_utilis import WaitUtils
+
 
 
 class LoginPage:
-
-    def __init__(self, driver=None):
+    def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(self.driver, 40)
+        self.wait = WebDriverWait(driver, 20)
 
     def wait_and_click(self, locator, description):
         print(f'Waiting for {description}')
@@ -20,7 +26,7 @@ class LoginPage:
         element.send_keys(keys)
         print(f'Entered {keys} into {description}')
 
-    def login(self):
+    def login(self, email, password):
         # Click on email sign-in
         self.wait_and_click((AppiumBy.XPATH, "//android.view.View[@resource-id='ecolabs-connect-sign-in']"), "Email Sign-In")
 

@@ -18,7 +18,7 @@ for i in range(2, sheet.max_row+1):
     Mar_Attendance.employee_id(value=sheet.cell(row=i, column=4).value)
     #Mar_Attendance.verification()
 
-    if Mar_Attendance.verification()==True:
+    if Mar_Attendance.verification():
         sheet.cell(row=i, column=5).value = "Done"
         excel.save(r"C:\Users\User\Desktop\Timesheet\2024\January 24\Invoice_Karthik CS_Jan24.xlsx")
     print('-' * 60)

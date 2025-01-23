@@ -1,5 +1,3 @@
-# mainFile.py
-
 import time
 from appium import webdriver
 from appium.options.common import AppiumOptions
@@ -11,8 +9,8 @@ from test import FreshLaunchApp  # Importing the login class from test.py
 
 class AppLaunch:
 
-    def __init__(self):
-        self.driver = None
+    def __init__(self, driver=None):
+        self.driver = driver
         self.wait = None
 
     def ex_setup(self):
@@ -23,7 +21,7 @@ class AppLaunch:
             "appium:automationName": "UiAutomator2",
             "appium:appPackage": "com.ecolab.apps.stainid",
             "appium:appActivity": "crc64d83ff2e5b463b76a.MainActivity",
-            # "appium:app": "C:\\Users\\Adithya\\OneDrive\\Desktop\\stainid.apk",
+            "appium:app": r"C:\Users\Adithya\Downloads\6.0.184077.apk",
             "appium:noReset": True,  # Avoid reinstalling the app every time
             "appium:fullReset": False,
             "appium:ensureWebviewsHavePages": True,
@@ -64,7 +62,7 @@ class AppLaunch:
             # Check if already logged in by checking the presence of the home screen element
             self.wait.until(EC.presence_of_element_located((AppiumBy.XPATH, "//android.widget.TextView[@text='Home']")))
             print("Already logged in. No need to log in again.")
-            home_flow = FreshLaunchApp()
+            home_flow = FreshLaunchApp(self.driver)
             home_flow.home()
 
         except Exception:
@@ -73,7 +71,7 @@ class AppLaunch:
 
     def perform_login(self):
         # Calling the login flow from test.py
-        login_flow = FreshLaunchApp()
+        login_flow = FreshLaunchApp(self.driver)
         login_flow.login()
 
 
@@ -81,3 +79,6 @@ class AppLaunch:
 if __name__ == "__main__":
     user = AppLaunch()
     user.ex_setup()
+
+
+
