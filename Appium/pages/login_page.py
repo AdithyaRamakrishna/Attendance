@@ -4,7 +4,7 @@ from appium.options.common import AppiumOptions
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from test import FreshLaunchApp  # Importing the login class from test.py# from Appium.utils.wait_utilis import WaitUtils
+from test import FreshLaunchApp  # Importing the login class from newStainID.py# from Appium.utils.wait_utilis import WaitUtils
 
 
 

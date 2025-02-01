@@ -4,7 +4,7 @@ from appium.options.common import AppiumOptions
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from test import FreshLaunchApp  # Importing the login class from test.py
+from test import FreshLaunchApp  # Importing the login class from newStainID.py
 
 
 class AppLaunch:
@@ -70,7 +70,7 @@ class AppLaunch:
             self.perform_login()
 
     def perform_login(self):
-        # Calling the login flow from test.py
+        # Calling the login flow from newStainID.py
         login_flow = FreshLaunchApp(self.driver)
         login_flow.login()
 

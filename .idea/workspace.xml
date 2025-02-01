@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96d9b23b-63cf-427e-8967-dc9982288ba5" name="Changes" comment="Commiting the new project and it is a first commit">
+    <list default="true" id="96d9b23b-63cf-427e-8967-dc9982288ba5" name="Changes" comment="Added new methods and updated">
+      <change afterPath="$PROJECT_DIR$/Appium/newStainID.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Appium/Ap2.py" beforeDir="false" afterPath="$PROJECT_DIR$/OldAppium/Ap2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Appium/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Appium/config/capabilities.json" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/config/capabilities.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Appium/config/import_items.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/config/import_items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Appium/mainFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/mainFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Appium/newdummy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/newdummy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Appium/pages/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/pages/home_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Appium/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/pages/login_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Appium/stainid.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/stainid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Appium/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attendance_2023/Main_File.py" beforeDir="false" afterPath="$PROJECT_DIR$/Attendance_2023/Main_File.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewPractice/Sample" beforeDir="false" afterPath="$PROJECT_DIR$/NewPractice/Sample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewPractice/SeleniumPrac.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewPractice/SeleniumPrac.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewPractice/practice_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewPractice/practice_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Appium/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,40 +65,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for test_compare.test_sqrt.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_demo1.test_firstprogram.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_example.test_secondProgram.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_login.TestLogin.test_login_and_home_navigation.executor&quot;: &quot;Debug&quot;,
-    &quot;Python tests.Python tests for test_square.test_divide.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_example.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_example1.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_fixturesDataLoad.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_login.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest in test_demo1.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Ap2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.DUMMY.executor&quot;: &quot;Run&quot;,
-    &quot;Python.E2EPracticeTest.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Practice1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.SeleniumPrac.executor&quot;: &quot;Run&quot;,
-    &quot;Python.driver_factory.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.mainFile.executor&quot;: &quot;Run&quot;,
-    &quot;Python.newdummy.executor&quot;: &quot;Run&quot;,
-    &quot;Python.practice_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.runfile.executor&quot;: &quot;Run&quot;,
-    &quot;Python.stainid.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.xpaths.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;stain__branch&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/TestYantra_Files/PycharmProjects/pythonProject1&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for test_compare.test_sqrt.executor": "Run",
+    "Python tests.Python tests for test_demo1.test_firstprogram.executor": "Run",
+    "Python tests.Python tests for test_example.test_secondProgram.executor": "Run",
+    "Python tests.Python tests for test_login.TestLogin.test_login_and_home_navigation.executor": "Debug",
+    "Python tests.Python tests for test_square.test_divide.executor": "Run",
+    "Python tests.Python tests in test_example.py.executor": "Run",
+    "Python tests.Python tests in test_example1.py.executor": "Run",
+    "Python tests.Python tests in test_fixturesDataLoad.py.executor": "Run",
+    "Python tests.Python tests in test_login.py.executor": "Run",
+    "Python tests.pytest in test_demo1.py.executor": "Run",
+    "Python.Ap2.executor": "Run",
+    "Python.DUMMY.executor": "Run",
+    "Python.E2EPracticeTest.executor": "Run",
+    "Python.Practice1.executor": "Run",
+    "Python.SeleniumPrac.executor": "Run",
+    "Python.driver_factory.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.mainFile.executor": "Run",
+    "Python.newStainID.executor": "Run",
+    "Python.newdummy.executor": "Run",
+    "Python.practice_1.executor": "Run",
+    "Python.runfile.executor": "Run",
+    "Python.stainid.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.xpaths.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "stain__branch",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/TestYantra_Files/PycharmProjects/pythonProject1",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\TestYantra files\PycharmProjects\pythonProject1\Appium" />
@@ -122,7 +115,7 @@
       <recent name="C:\Users\User\PycharmProjects\pythonProject1\Attendance" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.stainid">
+  <component name="RunManager" selected="Python.newStainID">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject1" />
       <option name="ENV_FILES" value="" />
@@ -145,7 +138,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="stainid" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="newStainID" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,7 +151,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Appium/stainid.py" />
+      <option name="SCRIPT_NAME" value="D:\TestYantra_Files\PycharmProjects\pythonProject1\Appium\newStainID.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -227,7 +220,7 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in test_demo1.py" type="tests" factoryName="py.test" nameIsGenerated="true">
+    <configuration name="pytest in D:\TestYantra files\PycharmProjects\pythonProject1\pytest\test_demo1.py" type="tests" factoryName="py.test" nameIsGenerated="true">
       <module name="pythonProject1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -247,19 +240,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.stainid" />
-      <item itemvalue="Python tests.Python tests for test_example.test_secondProgram" />
-      <item itemvalue="Python tests.Python tests in test_example1.py" />
-      <item itemvalue="Python tests.Python tests in test_example.py" />
+      <item itemvalue="Python.newStainID" />
+      <item itemvalue="Python tests.pytest in D:\TestYantra files\PycharmProjects\pythonProject1\pytest\test_demo1.py" />
       <item itemvalue="Python tests.Python tests in test_fixturesDataLoad.py" />
-      <item itemvalue="Python tests.pytest in test_demo1.py" />
+      <item itemvalue="Python tests.Python tests for test_example.test_secondProgram" />
+      <item itemvalue="Python tests.Python tests in test_example.py" />
+      <item itemvalue="Python tests.Python tests in test_example1.py" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.stainid" />
-        <item itemvalue="Python tests.Python tests in test_example1.py" />
-        <item itemvalue="Python tests.Python tests in test_example.py" />
+        <item itemvalue="Python.newStainID" />
         <item itemvalue="Python tests.Python tests in test_fixturesDataLoad.py" />
+        <item itemvalue="Python tests.Python tests in test_example.py" />
+        <item itemvalue="Python tests.Python tests in test_example1.py" />
         <item itemvalue="Python tests.Python tests for test_example.test_secondProgram" />
       </list>
     </recent_temporary>
@@ -309,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726855615362</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added new methods and updated">
+      <option name="closed" value="true" />
+      <created>1737599525039</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737599525039</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,7 +340,8 @@
     <MESSAGE value="Commiting the first version" />
     <MESSAGE value="Commiting the second version" />
     <MESSAGE value="Commiting the new project and it is a first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commiting the new project and it is a first commit" />
+    <MESSAGE value="Added new methods and updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new methods and updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
