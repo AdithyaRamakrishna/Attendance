@@ -27,14 +27,16 @@ class FreshLaunchApp:
             "appium:deviceName": "Android device",
             "appium:automationName": "UiAutomator2",
             # "appium:app": r"C:\Users\Adithya\OneDrive\Desktop\7.2.256994_QA.apk",
-            "appium:appPackage": "com.ecolab.apps.stainid",
-            "appium:appActivity": "com.ecolab.apps.stainid.MainActivity",
+            # "appium:appPackage": "com.ecolab.apps.stainid",
+            # "appium:appActivity": "com.ecolab.apps.stainid.MainActivity",
             "appium:ensureWebviewsHavePages": True,
             "appium:nativeWebScreenshot": True,
             "appium:newCommandTimeout": 3600,
             "appium:connectHardwareKeyboard": True,
-            "appium:noReset": True,
-            "appium:fullReset": False,
+            "appium:noReset": True,  # Ensures a start without resetting
+            "appium:fullReset": False,  # Avoids reinstalling the app
+            "appium:clearSystemFiles": True,  # Clears temp files
+            "appium:forceAppLaunch": True  # Forces a new app launch
 
         }
         self.driver = webdriver.Remote("http://127.0.0.1:4723", options=AppiumOptions().load_capabilities(desired_caps))
@@ -156,49 +158,79 @@ class FreshLaunchApp:
         print('Navigated to the Home Screen')
         # Now perform actions on the home screen
 
-        #self.wait_until_enabled_and_click((AppiumBy.XPATH, 'new UiSelector().className("android.widget.ImageView").instance(3)'), "New Scan Button")
-
-        self.wait_and_click((AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.view.ViewGroup").instance(10)'),"New Scan")
-
         self.home_actions()
 
     def home_actions(self):
         print('Performing home actions...')
+
+        # """Enable Bluetooth directly using ADB"""
+        # print("Enabling Bluetooth...")
+        # self.driver.execute_script("mobile: shell", {"command": "service call bluetooth_manager 6"})
+        # print("Bluetooth enabled")
+        #
+        # """Enable GPS directly using ADB"""
+        # print("Enabling GPS...")
+        # self.driver.execute_script("mobile: shell", {"command": "settings put secure location_mode 3"})
+        # print("GPS enabled")
+
         self.home_search()
 
-    def hamburger(self):
-        pass
+    def home_search(self):
 
-    def scan_new_sample(self):
+        print('Performing searching')
+        # Locate the search bar element
+        search_bar = "com.ecolab.apps.stainid:id/search_src_text"
 
-        # Click on + button
-        self.wait_and_click((AppiumBy.XPATH, '//android.widget.Button[@text="+"]'), "+ button")
+        # Click on search bar
+        self.wait_and_click((AppiumBy.ID, search_bar), "Search Bar")
 
-    def account_number(self):
+        # Enter search key [Stain Name]
+        self.wait_and_send_keys((AppiumBy.ID, search_bar), 'Lipstick', "Enter Search Key")
 
-        # Open the Account Detail screen
-        self.wait_and_click((AppiumBy.XPATH,'//androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView[3]'),'Account Detail screen')
-        print("Opened the Account Detail screen")
+        # Close the keyboard
+        # self.driver.hide_keyboard()
+        self.driver.press_keycode(4)  # Keycode for the Back button
 
-        # Scroll Previous Scans
-        self.wait_and_scroll(start_x=500, start_y=2000, end_x=500, end_y=1640, times=3, description="Account Detail scrolling")
-        print('Performed the scrolling action')
+        # Perform scrolling action
+        self.wait_and_scroll(start_x=500, start_y=1800, end_x=500, end_y=500, times=1, description="scroll on the home screen")
 
-        # Navigate back to Home screen
-        self.wait_and_click((AppiumBy.XPATH,'//androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ImageView'),'Back Arrow')
-        print('Clicked on the back arrow')
+        print('Scrolled down')
 
-        print('Navigated to Home screen')
+        # Clear the searched item
+        self.wait_and_click((AppiumBy.ID, 'com.ecolab.apps.stainid:id/search_close_btn'),'Clear Search button')
+        print('Cleared the search text')
+
+        # Enter search key [Account Name]
+        self.wait_and_send_keys((AppiumBy.ID, search_bar), 'Ecolab Office', "Enter Search Key")
+
+        # Close the keyboard
+        self.driver.press_keycode(4)  # Keycode for the Back button
+        time.sleep(2)
+
+        # Perform scrolling action
+        self.wait_and_scroll(start_x=500, start_y=1800, end_x=500, end_y=500, times=1, description="scroll on the home screen")
+        print('Scrolled down')
+        time.sleep(2)
+
+        self.scan_card()
 
     def scan_card(self):
 
-        # Open the Scan Card
-        self.wait_and_click(
-            (AppiumBy.XPATH, '//androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup'),'Scan Card')
-        print("Opened the first scan card")
+        # XPath for scan card elements
+        scan_card = '//androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ImageView'
+
+        # Find all scan card elements using the XPath
+        scancards = self.driver.find_elements(AppiumBy.XPATH, scan_card)
+
+        # Check if we have found any scan cards and click on the first one
+        if scancards:
+            scancards[0].click()  # Click on the first scan card
+            print("Opened the first scan card")
+        else:
+            print("No scan cards found")
 
         # Scan Feedback
-        value = 1      # [0 = Yes, 1 = Not sure, 2 = No]
+        value = 0      # [0 = Yes, 1 = Not sure, 2 = No]
         if value == 0:
             self.wait_and_click((AppiumBy.XPATH, '//android.widget.TextView[@text="Yes"]'),'Yes')
             text = self.wait_and_get_text((AppiumBy.XPATH,'//android.widget.TextView[@text="Thank You!"]'),'Thank You')
@@ -232,44 +264,110 @@ class FreshLaunchApp:
 
         self.account_number()
 
-    def home_search(self):
+    def account_number(self):
 
-        print('performing searching')
-        # Locate the search bar element
-        search_bar = "com.ecolab.apps.stainid:id/search_src_text"
+        # Open the Account Detail screen
+        self.wait_and_click((AppiumBy.XPATH,'//androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView[3]'),'Account Detail screen')
+        print("Opened the Account Detail screen")
 
-        # Click on search bar
-        self.wait_and_click((AppiumBy.ID, search_bar), "Search Bar")
+        # Scroll Previous Scans
+        self.wait_and_scroll(start_x=500, start_y=2000, end_x=500, end_y=1640, times=3, description="Account Detail scrolling")
+        print('Performed the scrolling action')
 
-        # Enter search key [Stain Name]
-        self.wait_and_send_keys((AppiumBy.ID, search_bar), 'Mascara', "Enter Search Key")
+        # Open the Scan Card in Account Detail
+        self.wait_and_click(
+            (AppiumBy.XPATH, '//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup'),'Scan Card in Account Detail')
+        print("Opened the first scan card in Account Detail")
 
-        # Close the keyboard
-        # self.driver.hide_keyboard()
-        self.driver.press_keycode(4)  # Keycode for the Back button
+        # Click on X icon
+        time.sleep(5)
+        self.wait_and_click((AppiumBy.XPATH,
+                             '//androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ImageView'),
+                            'X icon')
 
-        # Perform scrolling action
-        self.wait_and_scroll(start_x=500, start_y=1800, end_x=500, end_y=500, times=1, description="scroll on the home screen")
+        print('Navigated back to Account Detail screen')
 
-        print('Scrolled down')
+        # Navigate back to Home screen by clicking on back arrow
+        self.wait_and_click((AppiumBy.XPATH,'//androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ImageView'),'Back Arrow')
+        print('Clicked on the back arrow')
 
-        # Clear the searched item
-        self.wait_and_click((AppiumBy.ID, 'com.ecolab.apps.stainid:id/search_close_btn'),'Clear Search button')
-        print('Cleared the search text')
+        print('Navigated to Home screen')
 
-        # Enter search key [Account Name]
-        self.wait_and_send_keys((AppiumBy.ID, search_bar), 'Ecolab', "Enter Search Key")
+        self.bluetooth_pairing()
 
-        # Close the keyboard
-        self.driver.press_keycode(4)  # Keycode for the Back button
+    def bluetooth_pairing(self):
+
+        # Open the Bluetooth pairing screen
+        self.wait_and_click((AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().className("android.widget.ImageView").instance(1)'),'Bluetooth Icon')
+
+        # Wait for the popup to be visible
+        self.wait.until(EC.presence_of_element_located((AppiumBy.XPATH, '//android.widget.TextView[@text="Stain ID Device Status"]')))
+        print("Popup detected: Stain Id Device Status")
+
+        # Click on 'Add Device' button
+        self.wait_and_click((AppiumBy.XPATH,'//android.widget.TextView[@text="Add Device"]'),'Add Device button')
+        print("Clicked on 'Add Device' button")
+        time.sleep(5)
+
+        """Check for available devices and handle selection or navigation accordingly."""
+        available_device_xpath = '//android.widget.ListView/android.widget.LinearLayout[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup'
+        continue_button_xpath = '//android.widget.Button[@text="Continue"]'
+        refresh_button_xpath = '//android.widget.TextView[@text="Refresh"]'
+        back_arrow_xpath = '//androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ImageView'
+
+        # Check if an available device is present
+        if self.driver.find_elements(AppiumBy.XPATH, available_device_xpath):
+            print("Device found, selecting...")
+            self.wait_and_click((AppiumBy.XPATH, available_device_xpath), 'Available Device')
+            self.wait_and_click((AppiumBy.XPATH, continue_button_xpath), 'Continue button')
+            print('Navigated back to Home screen')
+
+        else:
+            print("No devices found. Refreshing the list...")
+            self.wait_and_click((AppiumBy.XPATH, refresh_button_xpath), 'Refresh button')
+
+            # Wait briefly for the refresh to process
+            time.sleep(3)
+
+            # Check again for available devices
+            if self.driver.find_elements(AppiumBy.XPATH, available_device_xpath):
+                print("Device found after refresh, proceeding...")
+                self.wait_and_click((AppiumBy.XPATH, available_device_xpath), 'Available Device')
+                self.wait_and_click((AppiumBy.XPATH, continue_button_xpath), 'Continue button')
+            else:
+                print("No devices found even after refresh. Navigating back to Home screen.")
+                self.wait_and_click((AppiumBy.XPATH, back_arrow_xpath), 'Back Arrow')
+
+        print("Navigated to Home Screen")
+        self.scan_new_sample()
+
+    def hamburger(self):
+        pass
+
+    def scan_new_sample(self):
+
+        # Click on + button
+        self.wait_and_click((AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.view.ViewGroup").instance(10)'),"New Scan")
+        # self.wait_until_enabled_and_click((AppiumBy.XPATH, 'new UiSelector().className("android.widget.ImageView").instance(3)'), "New Scan Button")
+
+        info_icon = (AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().className("android.widget.ImageView").instance(4)')
+        self.wait_and_click(info_icon, 'info icon')
+        print('Recent and My Accounts info message is opened')
+        time.sleep(3)
+        self.wait_and_click(info_icon, 'info icon')
+        print('Recent and My Accounts info message is closed')
+
+        self.wait_and_scroll(start_x=500, start_y=1943, end_x=500, end_y=950, times=2, description="scroll on the Select Account screen")
+        time.sleep(3)
+        self.wait_and_click((AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().className("android.widget.ImageView").instance(5)'), 'Sort Icon')
         time.sleep(2)
-
-        # Perform scrolling action
-        self.wait_and_scroll(start_x=500, start_y=1800, end_x=500, end_y=500, times=1, description="scroll on the home screen")
-        print('Scrolled down')
+        self.wait_and_click((AppiumBy.XPATH,'//android.widget.TextView[@text="Name"]'), 'Name')
         time.sleep(2)
-
-        self.scan_card()
+        self.wait_and_click((AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().className("android.widget.ImageView").instance(5)'), 'Sort Icon')
+        time.sleep(2)
+        self.wait_and_click((AppiumBy.XPATH,'//android.widget.TextView[@text="Distance"]'), 'Distance')
+        time.sleep(2)
+        self.wait_and_scroll(start_x=500, start_y=1943, end_x=500, end_y=950, times=2, description="scroll on the Select Account screen")
 
 
 app = FreshLaunchApp()
