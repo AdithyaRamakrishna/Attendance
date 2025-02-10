@@ -5,31 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96d9b23b-63cf-427e-8967-dc9982288ba5" name="Changes" comment="Added new methods and updated">
-      <change afterPath="$PROJECT_DIR$/Ameya/DUMMY.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ameya/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ameya/runfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ameya/xpaths.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/data/test_data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/logs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/pages/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/tests/test_login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/utils/driver_factory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Appium/utils/wait_utilis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewPractice/E2EPracticeTest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pytest/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pytest/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pytest/file.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pytest/test_example.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pytest/test_example1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pytest/test_fixturesDataLoad.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pytest/test_logging.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pytest/test_parametrize.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Appium/newStainID.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appium/newStainID.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +93,7 @@
     &quot;git-widget-placeholder&quot;: &quot;stain__branch&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/TestYantra_Files/PycharmProjects/pythonProject1&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -261,19 +237,19 @@
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.newStainID" />
-      <item itemvalue="Python tests.pytest in D:\TestYantra files\PycharmProjects\pythonProject1\pytest\test_demo1.py" />
       <item itemvalue="Python tests.Python tests for Pytest.test_parametrize.test_add" />
-      <item itemvalue="Python tests.Python tests in test_fixturesDataLoad.py" />
-      <item itemvalue="Python tests.Python tests in test_example.py" />
       <item itemvalue="Python tests.Python tests in test_example1.py" />
+      <item itemvalue="Python tests.Python tests in test_example.py" />
+      <item itemvalue="Python tests.Python tests in test_fixturesDataLoad.py" />
+      <item itemvalue="Python tests.pytest in D:\TestYantra files\PycharmProjects\pythonProject1\pytest\test_demo1.py" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for Pytest.test_parametrize.test_add" />
-        <item itemvalue="Python.newStainID" />
         <item itemvalue="Python tests.Python tests in test_fixturesDataLoad.py" />
         <item itemvalue="Python tests.Python tests in test_example.py" />
         <item itemvalue="Python tests.Python tests in test_example1.py" />
+        <item itemvalue="Python tests.Python tests for Pytest.test_parametrize.test_add" />
+        <item itemvalue="Python.newStainID" />
       </list>
     </recent_temporary>
   </component>
@@ -338,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738443053039</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added new methods and updated">
+      <option name="closed" value="true" />
+      <created>1739195262070</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739195262070</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
